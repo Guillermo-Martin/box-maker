@@ -12,7 +12,6 @@ class BoxList extends Component {
 // it will take the info from form as an argument
 // this info will be an object
 // method will update state; use callback form
-
   addInfo = (info) => {
     this.setState({boxes: [...this.state.boxes, info]});
     console.log(this.state.boxes);
