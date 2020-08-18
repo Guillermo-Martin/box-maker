@@ -11,8 +11,10 @@ class NewBoxForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
+  // function calls addInfo function from BoxList component (the parent)
   handleSubmit = event => {
     event.preventDefault();
+    // addInfo function from parent
     this.props.addInfo(this.state);
     this.setState({height: "", width: "", color: ""});
   }
