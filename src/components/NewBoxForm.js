@@ -14,7 +14,7 @@ class NewBoxForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     // alert(`Height: ${this.state.height}, width: ${this.state.width}, color: ${this.state.color}`)
-    this.props.addInfo();
+    this.props.addInfo(this.state);
   }
 
   render() {
