@@ -15,13 +15,17 @@ class BoxList extends Component {
 
   addInfo = (info) => {
     this.setState({boxes: [...this.state.boxes, info]});
-    // console.log(this.state.boxes);
+    console.log(this.state.boxes);
   }
 
   render() {
     // for everybox in in the boxes array, render a box
     const allBoxes = this.state.boxes.map(box => 
-      <Box />  
+      <Box 
+        height={box.height}
+        width={box.width}
+        color={box.color}
+      />  
     )
     return (
       <div>

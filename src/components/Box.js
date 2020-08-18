@@ -3,10 +3,15 @@
 
 import React from 'react';
 
-function Box() {
+function Box(props) {
   return (
-    <div style={{border: "3px solid black"}}>
-      This is a box
+    <div style={
+      {
+        height: `${props.height}rem`,
+        width: `${props.width}rem`,
+        backgroundColor: `${props.color}`
+      }}
+    >
     </div>
   );
 }
