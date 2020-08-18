@@ -1,11 +1,12 @@
 import React from 'react';
+import NewBoxForm from './components/NewBoxForm';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Box Maker</h1>
+      <NewBoxForm />
     </div>
   );
 }
