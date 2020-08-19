@@ -12,6 +12,12 @@ function Box(props) {
         backgroundColor: `${props.color}`
       }}
     >
+    <span 
+      style={{display: "flex", justifyContent: "flex-end", fontSize: "3rem", color: "red"}}
+      onClick={props.handleDelete}
+    >
+      X
+    </span>
     </div>
   );
 }

@@ -17,6 +17,10 @@ class BoxList extends Component {
     }));
   }
 
+  handleDelete = () => {
+    alert("I will be deleted");
+  }
+
   render() {
     // for every info object in in the boxes array, render a box with those dimensions
     const allBoxes = this.state.boxes.map(box => 
@@ -24,6 +28,7 @@ class BoxList extends Component {
         height={box.height}
         width={box.width}
         color={box.color}
+        handleDelete={this.handleDelete}
       />  
     )
     return (
