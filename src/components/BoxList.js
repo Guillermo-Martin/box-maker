@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Box from './Box';
 import NewBoxForm from './NewBoxForm';
-import { v4 as uuidv4 } from 'uuid';
+
 
 class BoxList extends Component {
   state = {
@@ -13,25 +13,30 @@ class BoxList extends Component {
 // this info will be an object ({height, width, color})
 // method will update state; use callback form
   addInfo = (info) => {
+    // spread out the boxes, then add the new stuff
     this.setState(state => ({
       boxes: [...state.boxes, info]
     }));
   }
 
-  handleDelete = () => {
-    alert("I will be deleted");
+  handleDelete = (id) => {
+    // filter through boxes array and create a new array of boxes that don't equal the id of the box clicked on
+    const afterDelete = this.state.boxes.filter(box => box.id !== id);
+    // setState to be the new array
+    this.setState({ boxes: afterDelete });
   }
 
   render() {
     // for every info object in in the boxes array, render a box with those dimensions
     const allBoxes = this.state.boxes.map(box => 
       <Box
-        key={uuidv4()}
+        key={box.id}
+        id={box.id} // <--- using the id again, but this time it'll be used for deleting
         height={box.height}
         width={box.width}
         color={box.color}
         handleDelete={this.handleDelete}
-      />    
+      />
     )
 
     return (

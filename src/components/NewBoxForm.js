@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 class NewBoxForm extends Component {
   state = {
     height: "",
     width: "",
-    color: ""
+    color: "",
   }
 
   handleInputChange = event => {
@@ -14,8 +15,12 @@ class NewBoxForm extends Component {
   // function calls addInfo function from BoxList component (the parent)
   handleSubmit = event => {
     event.preventDefault();
-    // addInfo function from parent
-    this.props.addInfo(this.state);
+    // adding uuid:  create a new variable that will contain the new info, spread out the state, then add the id
+    // then pass it to the addInfo function
+    const newInfo = {...this.state, id: uuidv4()}  // <--- now the box info will contain an id
+
+    // addInfo function is from the parent
+    this.props.addInfo(newInfo);
     this.setState({height: "", width: "", color: ""});
   }
 

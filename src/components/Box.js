@@ -14,7 +14,7 @@ function Box(props) {
     >
     <span 
       style={{display: "flex", justifyContent: "flex-end", fontSize: "3rem", color: "red"}}
-      onClick={props.handleDelete}
+      onClick={() => props.handleDelete(props.id)} // <--- we're passing in the box's id here
     >
       X
     </span>
