@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Box from './Box';
 import NewBoxForm from './NewBoxForm';
+import { v4 as uuidv4 } from 'uuid';
 
 class BoxList extends Component {
   state = {
@@ -24,18 +25,19 @@ class BoxList extends Component {
   render() {
     // for every info object in in the boxes array, render a box with those dimensions
     const allBoxes = this.state.boxes.map(box => 
-      <Box 
+      <Box
+        key={uuidv4()}
         height={box.height}
         width={box.width}
         color={box.color}
         handleDelete={this.handleDelete}
-      />  
+      />    
     )
+
     return (
       <div>
         {/* Form */}
         <NewBoxForm addInfo={this.addInfo} />
-
         {/* Display boxes */}
         {allBoxes}
       </div>
